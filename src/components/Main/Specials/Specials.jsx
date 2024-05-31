@@ -4,38 +4,31 @@ import { images } from "../../../constants";
 import "./Specials.css";
 import { MdDeliveryDining } from "react-icons/md";
 
-import styled, { keyframes } from "styled-components";
-import { pulse } from "react-animations";
-
-const Pulse = styled.div`
-  animation: 8s ${keyframes`${pulse}`} infinite;
-`;
-
 const foodItems = [
   {
     name: "Greek Salad",
-    price: "₹1000",
+    price: "₹500.99",
     description:
       "The famous greek salad of crispy lettuce, peppers, olives and our India style feta cheese, garnished with crunchy garlic and rosemary croutons. ",
     image: images.greekSalad,
   },
   {
     name: "Bruchetta",
-    price: "₹800",
+    price: "₹550",
     description:
       "Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil. ",
     image: images.bruchetta,
   },
   {
     name: "Lemon Dessert",
-    price: "₹699",
+    price: "₹600",
     description:
       "This comes straight from grandma’s recipe book, every last ingredient has been sourced and is as authentic as can be imagined.",
     image: images.lemonDessert,
   },
   {
     name: "New Recipie",
-    price: "₹575",
+    price: "₹600",
     description:
       "This comes straight from grandma’s recipe book, every last ingredient has been sourced and is as authentic as can be imagined.",
     image: images.lemonDessert,
@@ -76,11 +69,7 @@ const Specials = () => {
       <div className="app__specials-food-card-holder">
         <div className="app__specials-food">
           {foodItems.map((item) => {
-            return (
-              <Pulse>
-                <FoodCard props={item} />
-              </Pulse>
-            );
+            return <FoodCard props={item} />;
           })}
         </div>
       </div>
