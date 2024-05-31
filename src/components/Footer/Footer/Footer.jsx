@@ -3,25 +3,18 @@ import './Footer.css';
 import {AppWrap} from '../../wrapper';
 import { images } from "../../constants";
 
-import styled, { keyframes } from 'styled-components';
-import { pulse } from 'react-animations'; 
-
-
-
-const Pulse = styled.div`animation: 8s ${keyframes`${pulse}`} infinite`;
-
-const doormatNavigation = ["Home", "About", "Menu", "Reservations", "Order Online", "Login"];
+const doormatNavigation = ["Home", "About", "menu", "Reservations", "Order Online", "Login"];
 const contact = ["Adress", "phone number", "email"];
 const socialMedia = ["Facebook", "Instagram", "Twitter", "Youtube"];
 
 const FooterItems = (props) => {
-    return (<div className="app__footer-items" id="footer">
+    return (<div className="app__footer-items">
         <h1 className="app__footer-item-title">{props.sectionName}</h1>
         <ul className="app__footer-item-names">
             {
                 props.sectionList.map((item) => {
                     return (<li key={item}>
-                        <a href={`#${item}`}>{item}</a>
+                        <a href="#">{item}</a>
                     </li>);
                 })
             }
@@ -32,16 +25,14 @@ const FooterItems = (props) => {
 
 const Footer = () => {
     return (<footer className="app__footer-section">
-        <Pulse>
-            <div className="app__about-image-box img-box-1"
-                style= 
+        <div className="app__about-image-box img-box-1"
+            style= 
+            {
                 {
-                    {
-                        backgroundImage: `url(${images.resturant})`
-                    }
+                    backgroundImage: `url(${images.resturant})`
                 }
-            />
-        </Pulse>
+            }
+        ></div>
         <FooterItems sectionName="Doormat Navigation" sectionList={doormatNavigation} />
         <FooterItems sectionName="Contact" sectionList={contact} />
         <FooterItems sectionName="Social Media" sectionList={socialMedia} />

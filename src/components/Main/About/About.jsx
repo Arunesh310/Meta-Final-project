@@ -2,6 +2,14 @@ import React from "react";
 import { AppWrap } from "../../../wrapper";
 import "./About.css";
 import { images } from "../../../constants";
+
+import styled, { keyframes } from "styled-components";
+import { pulse } from "react-animations";
+
+const Pulse = styled.div`
+  animation: 8s ${keyframes`${pulse}`} infinite;
+`;
+
 const aboutData = {
   title: "Little Lemon",
   subTitle: "India",
@@ -27,24 +35,27 @@ const About = () => {
           {aboutData.description}
         </p>
       </div>
+
       {/* <div className="app__about-image-box-section"> */}
       <div className="app__about-image-holder">
-        <div
-          className="app__about-image-box img-box-1"
-          style={{
-            backgroundImage: `url(${aboutData.image2})`,
-          }}
-        ></div>
-        <div
-          className="app__about-image-box img-box-2"
-          style={{
-            backgroundImage: `url(${aboutData.image1})`,
-          }}
-        ></div>
+        <Pulse>
+          <div
+            className="app__about-image-box img-box-1"
+            style={{
+              backgroundImage: `url(${aboutData.image2})`,
+            }}
+          />
+          <div
+            className="app__about-image-box img-box-2"
+            style={{
+              backgroundImage: `url(${aboutData.image1})`,
+            }}
+          />
+        </Pulse>
       </div>
       {/* </div> */}
     </div>
   );
 };
 
-export default AppWrap(About, "about-section", "app__about");
+export default AppWrap(About, "About", "app__about");

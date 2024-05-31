@@ -4,24 +4,38 @@ import { images } from "../../../constants";
 import "./Specials.css";
 import { MdDeliveryDining } from "react-icons/md";
 
+import styled, { keyframes } from "styled-components";
+import { pulse } from "react-animations";
+
+const Pulse = styled.div`
+  animation: 8s ${keyframes`${pulse}`} infinite;
+`;
+
 const foodItems = [
   {
     name: "Greek Salad",
-    price: "₹300",
+    price: "₹1000",
     description:
       "The famous greek salad of crispy lettuce, peppers, olives and our India style feta cheese, garnished with crunchy garlic and rosemary croutons. ",
     image: images.greekSalad,
   },
   {
     name: "Bruchetta",
-    price: "₹450",
+    price: "₹800",
     description:
       "Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil. ",
     image: images.bruchetta,
   },
   {
     name: "Lemon Dessert",
-    price: "₹750",
+    price: "₹699",
+    description:
+      "This comes straight from grandma’s recipe book, every last ingredient has been sourced and is as authentic as can be imagined.",
+    image: images.lemonDessert,
+  },
+  {
+    name: "New Recipie",
+    price: "₹575",
     description:
       "This comes straight from grandma’s recipe book, every last ingredient has been sourced and is as authentic as can be imagined.",
     image: images.lemonDessert,
@@ -59,13 +73,19 @@ const Specials = () => {
         <h1 className="app__specials-title">Specials</h1>
         <button className="app__specials-btn-menu">Online Menu</button>
       </div>
-      <div className="app__specials-food">
-        {foodItems.map((item) => {
-          return <FoodCard props={item} />;
-        })}
+      <div className="app__specials-food-card-holder">
+        <div className="app__specials-food">
+          {foodItems.map((item) => {
+            return (
+              <Pulse>
+                <FoodCard props={item} />
+              </Pulse>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
 };
 
-export default AppWrap(Specials, "specials", "app__specials");
+export default AppWrap(Specials, "Menu", "app__specials");
